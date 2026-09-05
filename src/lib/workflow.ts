@@ -79,7 +79,23 @@ export function detectArchetype(brief: string): Archetype {
 
 function subjectFrom(brief: string): string {
   const t = brief.toLowerCase();
-  const nouns = ["watch", "sneaker", "shoe", "phone", "bottle", "car", "jacket", "perfume", "camera", "laptop"];
+  const nouns = [
+    "electric motorcycle",
+    "motorcycle",
+    "watch",
+    "sneaker",
+    "shoe",
+    "phone",
+    "bottle",
+    "car",
+    "jacket",
+    "perfume",
+    "camera",
+    "laptop",
+    "headphones",
+    "handbag",
+    "skincare",
+  ];
   const found = nouns.find((n) => t.includes(n));
   return found ?? "the hero subject";
 }
