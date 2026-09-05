@@ -612,3 +612,19 @@ export const EXAMPLES = [
     text: "Create a product launch video with hero shots, lifestyle scenes and cinematic motion.",
   },
 ];
+
+export const DEMO_BRIEF =
+  "Create a cinematic 30-second product launch video for a premium electric motorcycle. It should feel futuristic, powerful and premium, with dramatic close-ups, moving vehicle shots and a final hero shot.";
+
+export function approachFor(brief: string): string {
+  switch (detectArchetype(brief)) {
+    case "product":
+      return "Lock the product's look with reference-driven stills first, then animate only the approved frames — this keeps the hero object consistent across every shot.";
+    case "character":
+      return "Establish the character once with a consistency-focused image model, reuse that frame as the reference for every following scene, then move to video.";
+    case "cinematic":
+      return "Build the film in beats: art-direct key frames as images, then hand each frame to a cinematic video model so motion and grade stay coherent.";
+    default:
+      return "Explore cheaply with fast image models, pick the strongest frames, then spend quality on the two or three shots that carry the piece.";
+  }
+}
