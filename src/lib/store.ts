@@ -50,7 +50,8 @@ const getSnapshot = () => {
   hydrate();
   return state;
 };
-const getServerSnapshot = () => ({ project: null, saved: [] }) as StoreState;
+const SERVER_STATE: StoreState = { project: null, saved: [] };
+const getServerSnapshot = () => SERVER_STATE;
 
 export function useStore() {
   return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
