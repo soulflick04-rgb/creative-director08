@@ -148,18 +148,32 @@ function WorkflowPage() {
         </div>
       </header>
 
-      <section className="card-surface mt-7 grid gap-6 p-5 sm:grid-cols-2 sm:p-6 lg:grid-cols-4">
-        {[
-          { k: "Project", v: `${project.name} — ${project.type}` },
-          { k: "Goal", v: project.goal },
-          { k: "Format", v: `${project.settings.format} · ${project.settings.duration}` },
-          { k: "Estimated usage", v: project.settings.quality },
-        ].map((item) => (
-          <div key={item.k}>
-            <p className="eyebrow">{item.k}</p>
-            <p className="mt-2 text-sm font-medium leading-relaxed">{item.v}</p>
-          </div>
-        ))}
+      <section className="card-surface mt-7 p-5 sm:p-6">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { k: "Project", v: `${project.name} — ${project.type}` },
+            { k: "Goal", v: project.goal },
+            { k: "Format", v: `${project.settings.format} · ${project.settings.duration}` },
+            { k: "Illustrative usage level", v: project.settings.quality },
+          ].map((item) => (
+            <div key={item.k}>
+              <p className="eyebrow">{item.k}</p>
+              <p className="mt-2 text-sm font-medium leading-relaxed">{item.v}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 border-t border-border pt-5">
+          <p className="eyebrow">Recommended approach</p>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+            {approachFor(project.brief)}
+          </p>
+        </div>
+        <div className="mt-5 border-t border-border pt-5">
+          <p className="eyebrow">Your brief</p>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+            “{project.brief}”
+          </p>
+        </div>
       </section>
 
       <section className="card-surface mt-4 p-5 sm:p-6">
