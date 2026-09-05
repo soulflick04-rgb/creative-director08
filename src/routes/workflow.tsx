@@ -108,7 +108,10 @@ function WorkflowPage() {
       const j = i + dir;
       if (i < 0 || j < 0 || j >= p.steps.length) return p;
       const steps = [...p.steps];
-      [steps[i], steps[j]] = [steps[j], steps[i]];
+      const a = steps[i]!;
+      const b = steps[j]!;
+      steps[i] = b;
+      steps[j] = a;
       return { ...p, steps };
     });
 
@@ -278,7 +281,7 @@ function WorkflowPage() {
                           <ArrowDown className="size-4" /> Move down
                         </DropdownMenuItem>
                         <DropdownMenuItem
-                          variant="destructive"
+                          className="text-destructive focus:text-destructive"
                           onClick={() => {
                             updateProject((p) => ({
                               ...p,
@@ -398,7 +401,7 @@ function StepDrawer({
             <Section title="Alternatives">
               <div className="space-y-2">
                 {step.alternatives.map((alt) => {
-                  const m = MODEL_BY_ID[alt.modelId];
+                  const m = MODEL_BY_ID[alt.modelId]!;
                   return (
                     <button
                       key={alt.modelId}

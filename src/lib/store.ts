@@ -17,7 +17,10 @@ function hydrate() {
   hydrated = true;
   try {
     const raw = window.localStorage.getItem(KEY);
-    if (raw) state = { saved: [], ...(JSON.parse(raw) as StoreState) };
+    if (raw) {
+      const parsed = JSON.parse(raw) as Partial<StoreState>;
+      state = { project: parsed.project ?? null, saved: parsed.saved ?? [] };
+    }
   } catch {
     /* ignore corrupt state */
   }

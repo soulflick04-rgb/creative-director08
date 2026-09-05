@@ -73,7 +73,8 @@ export function detectArchetype(brief: string): Archetype {
     ["cinematic", score(KEYWORDS.cinematic)],
   ];
   scores.sort((a, b) => b[1] - a[1]);
-  return scores[0][1] > 0 ? scores[0][0] : "generic";
+  const top = scores[0]!;
+  return top[1] > 0 ? top[0] : "generic";
 }
 
 function subjectFrom(brief: string): string {
