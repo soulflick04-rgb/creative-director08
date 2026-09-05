@@ -206,7 +206,7 @@ function ModelsPage() {
                   <LevelBar level={active.quality} label={LEVEL_LABEL[active.quality]} />
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground">Relative usage</span>
+                  <span className="text-xs text-muted-foreground">Illustrative usage level</span>
                   <LevelBar level={active.usage} label={LEVEL_LABEL[active.usage]} />
                 </div>
               </div>

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Home, Workflow, Boxes, FolderOpen, Settings, Menu } from "lucide-react";
 import { useState, type ReactNode } from "react";
+import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 
@@ -46,12 +47,15 @@ function SidebarInner({ onNavigate }: { onNavigate?: (() => void) | undefined })
         <NavList onNavigate={onNavigate} />
       </div>
       <div className="space-y-3">
-        <button className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground">
+        <button
+          onClick={() => toast("Settings are disabled in this prototype.")}
+          className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground">
           <Settings className="size-[18px]" strokeWidth={1.8} />
           Settings
         </button>
         <p className="px-3 text-[11px] leading-relaxed text-muted-foreground">
-          Independent prototype. Not affiliated with any model provider.
+          Independent prototype concept for creative AI workflows. Not affiliated with any model
+          provider.
         </p>
       </div>
     </div>
