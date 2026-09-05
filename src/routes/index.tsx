@@ -84,9 +84,11 @@ function OptionRow<T extends string>({
   );
 }
 
+const FLOW = ["Brief", "Creative plan", "Workflow", "Model picks", "Prompts"];
+
 function Home() {
   const navigate = useNavigate();
-  const [brief, setBrief] = useState("");
+  const [brief, setBrief] = useState(DEMO_BRIEF);
   const [settings, setSettings] = useState<BriefSettings>(DEFAULT_SETTINGS);
   const [refs, setRefs] = useState<ReferenceImage[]>([]);
   const [dragging, setDragging] = useState(false);
