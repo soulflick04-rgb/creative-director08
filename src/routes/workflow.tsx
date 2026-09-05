@@ -342,6 +342,7 @@ function WorkflowPage() {
       </div>
 
       <StepDrawer
+        index={project.steps.findIndex((s) => s.id === openId)}
         step={active}
         onClose={() => setOpenId(null)}
         onChange={(fn) => active && mutateStep(active.id, fn)}
@@ -363,10 +364,12 @@ function Connector() {
 
 function StepDrawer({
   step,
+  index,
   onClose,
   onChange,
 }: {
   step: WorkflowStep | null;
+  index: number;
   onClose: () => void;
   onChange: (fn: (s: WorkflowStep) => WorkflowStep) => void;
 }) {
@@ -378,7 +381,7 @@ function StepDrawer({
         {step && model && (
           <div className="p-6">
             <SheetTitle className="text-lg font-semibold">
-              {step.name}
+              {String(index + 1).padStart(2, "0")} — {step.name}
             </SheetTitle>
 
             <Section title="Objective">
