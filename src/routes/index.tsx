@@ -186,6 +186,16 @@ function Home() {
           Describe what you're trying to make. Creative Director breaks it into shots, recommends the
           right models, and gives you the prompts to build it.
         </p>
+        <ol className="mt-8 flex flex-wrap items-center justify-center gap-x-2 gap-y-2">
+          {FLOW.map((s, i) => (
+            <li key={s} className="flex items-center gap-2">
+              <span className="rounded-full border border-border bg-surface px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                {s}
+              </span>
+              {i < FLOW.length - 1 && <ArrowRight className="size-3 text-border-strong" strokeWidth={2.5} />}
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section className="card-surface mt-12 p-5 sm:p-7">
