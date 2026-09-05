@@ -309,7 +309,7 @@ export function generateWorkflow(
         refs: 2,
         tags: ["Reference required", "Character"],
         subject: "Consistent character portrait, three angles, neutral expression",
-        environment: "clean neutral studio背 backdrop",
+        environment: "clean neutral studio backdrop",
         camera: "85mm portrait lens",
         lighting: "soft beauty lighting, gentle contrast",
         composition: "head and shoulders, even spacing",
