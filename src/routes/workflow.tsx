@@ -21,6 +21,7 @@ import { MODEL_BY_ID, LEVEL_LABEL } from "@/lib/models";
 import { LevelBar } from "@/components/ui/level-bar";
 import {
   createProject,
+  approachFor,
   estimateUsage,
   newStep,
   transformPrompt,
@@ -179,7 +180,7 @@ function WorkflowPage() {
       <section className="card-surface mt-4 p-5 sm:p-6">
         <div className="flex flex-wrap items-start justify-between gap-6">
           <div className="min-w-[220px] flex-1">
-            <p className="eyebrow">Estimated workflow usage</p>
+            <p className="eyebrow">Illustrative usage level</p>
             <div className="mt-3">
               <LevelBar level={usage.level} filled={usage.filled} label={LEVEL_LABEL[usage.level]} />
             </div>
@@ -314,6 +315,17 @@ function WorkflowPage() {
                     <p className="eyebrow">Recommended model</p>
                     <p className="mt-1.5 text-sm font-semibold">{model?.name}</p>
                     <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{step.reason}</p>
+                    {step.alternatives[0] && (
+                      <p className="mt-2 text-[11px] text-muted-foreground">
+                        Alternative:{" "}
+                        <span className="font-medium text-foreground">
+                          {MODEL_BY_ID[step.alternatives[0].modelId]?.name}
+                        </span>
+                      </p>
+                    )}
+                    <p className="mt-2 text-[11px] text-muted-foreground">
+                      Illustrative usage level: {LEVEL_LABEL[step.usage]}
+                    </p>
                   </div>
 
                   <p className="mt-4 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
@@ -502,7 +514,7 @@ function StepDrawer({
 
             <Section title="Usage">
               <div className="flex items-center gap-3">
-                <LevelBar level={step.usage} label={`~ ${LEVEL_LABEL[step.usage].toLowerCase()}`} />
+                <LevelBar level={step.usage} label={`Illustrative — ${LEVEL_LABEL[step.usage].toLowerCase()}`} />
               </div>
             </Section>
 
