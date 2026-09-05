@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { Textarea } from "@/components/ui/textarea";
 import {
   DEFAULT_SETTINGS,
+  DEMO_BRIEF,
   EXAMPLES,
   createProject,
   type BriefSettings,
