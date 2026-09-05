@@ -312,6 +312,11 @@ function Home() {
           ))}
         </div>
       </section>
+
+      <p className="mt-10 text-center text-[11px] text-muted-foreground">
+        Independent prototype concept for creative AI workflows. Planning only — no generation,
+        no accounts, no external services.
+      </p>
     </div>
   );
 }
